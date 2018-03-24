@@ -1,16 +1,25 @@
 {
-  "name": "philosophy_ducku",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1"
-  },
+  "name": "example-create-react-app-express",
+  "version": "1.0.0",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.3",
+    "express-error-handler": "^1.1.0",
+    "express-session": "^1.15.6",
+    "http": "0.0.0",
+    "mongodb": "^3.0.5",
+    "mongoose": "^5.0.11",
+    "path": "^0.12.7",
+    "serve-static": "^1.13.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
   }
 }

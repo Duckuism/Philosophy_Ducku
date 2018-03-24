@@ -1,0 +1,16 @@
+:root{
+	--HomeImageHeight : 1200px;
+}
+
+.HomeImageSection {
+	background-image: url('../image/HomeImage2.jpg');
+	background-size: cover;
+	height: var(--HomeImageHeight);
+}
+
+@media all and (max-width: 600px){
+	:root{
+		--HomeImageHeight : 300px;
+	}
+
+}

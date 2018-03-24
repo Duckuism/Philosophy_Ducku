@@ -1,0 +1,29 @@
+:root{
+	--base-font-size:40px;
+	--base-padding:2rem;
+	--base-margin-top:4em;
+	--base-margin-bottom:4em;
+}
+
+.contentSection{
+	margin-top: var(--base-margin-top);
+	margin-bottom: var(--base-margin-bottom);
+}
+
+.content{
+	display:flex;
+	justify-content: center;
+	font-family: NanumSquareRoundR;
+	font-size:var(--base-font-size);
+	padding:var(--base-padding);
+	text-align: center;
+}
+
+@media all and (max-width:600px){
+	:root{
+		--base-font-size:15px;
+		--base-padding:1rem;
+		--base-margin-top:2em;
+		--base-margin-bottom:2em;		
+	}
+}
