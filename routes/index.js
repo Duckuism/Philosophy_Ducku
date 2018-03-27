@@ -69,6 +69,14 @@ module.exports = function(app, User, Board){
 
 	// --- BOARD ROUTE START --- 
 	// GET ALL BOARDS
+	app.get('/board', (req, res) => {
+		Board.find(function(err, boards){
+			if(err) return res.status(500).send({error: 'database failure'});
+			res.json(boards);
+		});
+	});
+
+	// GET ALL BOARDS
 	app.get('/api/boards', (req, res) => {
 		Board.find(function(err, boards){
 			if(err) return res.status(500).send({error: 'database failure'});
@@ -93,7 +101,7 @@ module.exports = function(app, User, Board){
 
 		board.save(function(err){
 			if(err){
-				console.err(err);
+				console.log(err);
 				res.json({result: 0});
 				return;
 			}
