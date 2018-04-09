@@ -29,7 +29,7 @@ class Board extends Component {
         };
     }
 
-
+    //read information of certain one board
 	fetchBoardInfo = async (boardId) => {
 
 		this.setState({
@@ -38,9 +38,9 @@ class Board extends Component {
 
 		const board = await Promise.all([
 			service.getBoard(boardId)
-		]);
+		])
 
-		console.log(board);
+		// console.log(board);
 
 		const {title, writer, content} = board[0].data;
         
@@ -56,26 +56,70 @@ class Board extends Component {
 		})
 	}
 
+    //read information of all boards
     fetchAllBoardInfo = async () =>{
         this.setState({
             fetching: true
-        });
+        })
 
         const boards = await Promise.all([
             service.getBoards()
-        ]);
-    
-        const list = [1,2,3,4,5];
-        const list2 = [];
+        ])    
         
         this.setState({
-            boards: boards[0],
+            boards: boards[0].data,
             fetching: false
         })
 
     }
 
+    //create new board
+    fetchCreateBoard = async() =>{
+        this.setState({
+            fetching: true
+        })
+
+        const board = await Promise.all([
+            service.createBoard()
+        ])
+
+        this.setState({
+            fetching: true
+        })
+    }
+
+    //update certain board by ID
+    fetchUpdateBoard = async(boardId) =>{
+        this.setState({
+            fetching: true
+        })
+
+        const board = await Promise.all([
+            service.updateBoard(boardId)
+        ])
+
+        this.setState({
+            fetching: true
+        })
+    }
+
+    //delete certain board by ID
+    fetchDeleteBoard = async(boardId) =>{
+        this.setState({
+            fetching: true
+        })
+
+        const board = await Promise.all([
+            service.deleteBoard(boardId)
+        ])
+
+        this.setState({
+            fetching: true
+        })
+    }
+
     componentDidMount(){
+
     	// fetch('http://localhost:3000/board')
     	// 	.then(results => {
     	// 		return results.json();
@@ -90,7 +134,8 @@ class Board extends Component {
     	// 		this.setState({boards: boards});
     	// 		console.log("state", this.state.boards)
     	// 	})
-    	this.fetchBoardInfo("5aba3be49dc4bb0d5a9e8cfb");
+
+    	// this.fetchBoardInfo("5aba3be49dc4bb0d5a9e8cfb");
         this.fetchAllBoardInfo();
     		    		
     }
